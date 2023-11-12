@@ -5,7 +5,7 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
 {
     public class DataBaseContext : DbContext
     {
-       
+        public DbSet<Ticket> Tickets { get; set; }
 
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
@@ -18,6 +18,6 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
             modelBuilder.Entity<Ticket>().HasIndex(t => t.IDticket).IsUnique();
         }
 
-        public DbSet<Ticket> Tickets { get; set; }
+        
     }
 }

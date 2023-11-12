@@ -57,12 +57,12 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         @if (!item.IsUsed)
                         {
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
                         }
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
                     </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
 }
     </tbody>
 </table>

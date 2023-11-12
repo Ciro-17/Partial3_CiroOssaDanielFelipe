@@ -4,6 +4,7 @@ namespace Partial3_CiroOssaDanielFelipe.DAL.Entities
 {
     public class Ticket : Entity
     {
+        #region
         [Required]
         public DateTime? UseDate { get; set; }
 
@@ -21,5 +22,6 @@ namespace Partial3_CiroOssaDanielFelipe.DAL.Entities
             Sur,
 
         }
-    }   
+    }
+    #endregion
 }

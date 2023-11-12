@@ -17,6 +17,8 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
 
             SellTickets();
 
+            await _context.SaveChangesAsync();
+
             
         }
             
@@ -30,7 +32,7 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
                     _context.Tickets.Add(new Entities.Ticket
                     {
                         IDticket = i,
-                        UseDate = null,
+                        UseDate = DateTime.Now,
                         IsUsed = false,
                         EntranceGate = null,
                         CreatedDate= DateTime.Now,

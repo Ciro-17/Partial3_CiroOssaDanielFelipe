@@ -20,7 +20,7 @@ void SeederData()
 
     using (IServiceScope? scope = scopedFactory.CreateScope())
     {
-        SeederDB? service = scope.ServiceProvider.GetService<SeederDB>();
+        SeederDB? service = scope.ServiceProvider.GetService<SeederDB?>();
         service.SeederAsync().Wait();
     }
 }
