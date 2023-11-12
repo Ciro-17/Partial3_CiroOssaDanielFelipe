@@ -13,7 +13,7 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Ticket>().HasIndex(c => c.Id).IsUnique();
+            modelBuilder.Entity<Ticket>().HasIndex(c => c.IDticket).IsUnique();
         }
 
         public DbSet<Ticket> Tickets { get; set; }

@@ -1,4 +1,6 @@
-﻿namespace Partial3_CiroOssaDanielFelipe.DAL
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Partial3_CiroOssaDanielFelipe.DAL
 {
     public class SeederDB
     {
@@ -13,23 +15,25 @@
         {
             await _context.Database.EnsureCreatedAsync();
 
-            await SellTicketsAsync();   
-        }
+            await SellTicketsAsync();
 
-        #region Private Methos
+            
+        }
+            
 
         private async Task SellTicketsAsync()
         {
             if (!_context.Tickets.Any()) 
             {
-                for (int i = 0; i <= 1000; i++)
+                for (int i = 1; i <= 1000; i++)
                 {
                     _context.Tickets.Add(new Entities.Ticket
                     {
-
-                        IsUsed = false,
+                        IDticket = i,
                         UseDate = null,
+                        IsUsed = false,
                         EntranceGate = null,
+                        CreatedDate= DateTime.Now,
 
                     }
                     );
@@ -37,6 +41,6 @@
             }
         }
 
-        #endregion
+        
     }
 }

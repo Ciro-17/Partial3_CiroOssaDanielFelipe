@@ -9,6 +9,17 @@ namespace Partial3_CiroOssaDanielFelipe.DAL.Entities
 
         public bool IsUsed { get; set; }
 
-        public String? EntranceGate { get; set; }
+        public Entrance? EntranceGate { get; set; }
+
+        public int IDticket { get; internal set; }
+
+        public enum Entrance
+        {
+            Oriental,
+            Occidental,
+            Norte,
+            Sur,
+
+        }
     }   
 }
