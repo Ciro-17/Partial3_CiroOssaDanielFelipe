@@ -4,14 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<h1>Tickets</h1>
+
+<table class="table" id="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDticket)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.UseDate)
             </th>
@@ -34,6 +36,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.IDticket)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.UseDate)
             </td>
             <td>
@@ -49,11 +54,43 @@
                 @Html.DisplayFor(modelItem => item.ModifiedDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        @if (!item.IsUsed)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        }
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
+                    </div>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<style>
+    .custom-datatables {
+        color: maroon;
+        font-weight: bold;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+                },
+                "aLengthMenu": [
+                    [20, 50, 100, 200, -1],
+                    [20, 50, 100, 200, "Todos"]
+                ]
+            });
+        });
+    </script>
+}
