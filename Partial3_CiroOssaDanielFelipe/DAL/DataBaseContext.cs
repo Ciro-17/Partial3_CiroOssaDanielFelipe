@@ -5,6 +5,8 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
 {
     public class DataBaseContext : DbContext
     {
+       
+
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
             
@@ -13,7 +15,7 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Ticket>().HasIndex(c => c.IDticket).IsUnique();
+            modelBuilder.Entity<Ticket>().HasIndex(t => t.IDticket).IsUnique();
         }
 
         public DbSet<Ticket> Tickets { get; set; }

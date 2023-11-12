@@ -15,13 +15,13 @@ namespace Partial3_CiroOssaDanielFelipe.DAL
         {
             await _context.Database.EnsureCreatedAsync();
 
-            await SellTicketsAsync();
+            SellTickets();
 
             
         }
             
 
-        private async Task SellTicketsAsync()
+        private void SellTickets()
         {
             if (!_context.Tickets.Any()) 
             {
